@@ -27,6 +27,7 @@ document.write("" + "Randomly generated number is now: " + randomNumber + "</br>
 //Start generating each password
 for(var count = 0; count < passwordsToCreate; ++count) {
    var password = [];
+   randomNumber *= 10;
    //Start generating a password
    for(var i = 0; i < passwordLength; ++i) {
       //If the current iteration is even, place a number. Otherwise place a letter
@@ -38,7 +39,7 @@ for(var count = 0; count < passwordsToCreate; ++count) {
          * If the value is even choose a number from the ascending numbers string
          * Otherwise choose a number from the descending numbers string
          */
-         password.push((Math.round((randomNumber * 1)) % 2 === 0) ? numbersAscending.charAt(RandRange(0, numbersAscending.length + 1) + 1) : numbersDescending.charAt(RandRange(0, numbersDescending.length + 1) + 1));
+         password.push((Math.round((randomNumber * 1)) % 2 === 0) ? numbersAscending.charAt(RandRange(0, numbersAscending.length + 1)) : numbersDescending.charAt(RandRange(0, numbersDescending.length + 1)));
       } else {
          /* STEPS
          * Generate a random number between 0 and 1
