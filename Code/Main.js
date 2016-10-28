@@ -19,9 +19,13 @@ var randomCharacters = [];
 //Write how many passwords are to be generated at what length
 document.write("Generating " + passwordsToCreate + " passwords of " + passwordLength + " length each... <hr>"); 
 
+//Random number to use 
 var randomNumber = Math.random();
+//Print initial values
 document.write("</br>" + "Randomly generated number: " + randomNumber + "</br>");
-randomNumber *= 10;
+//Multiply to get proper number 
+randomNumber *= 100;
+//Print new value
 document.write("" + "Randomly generated number is now: " + randomNumber + "</br></br>");
 
 //Start generating each password
