@@ -1,4 +1,4 @@
-# 3D-Game
+# Password-Generator
 > This is a client-side password generator. The project is still in development. The following features are yet to be implemented:
 
 1. More random selection algorithm
