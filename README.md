@@ -11,6 +11,7 @@ This project's goals:
 - [ ] Downloading the .CSV files
 - [ ] Pneumonics to make generated passwords easier to remember
 - [ ] A proper website
+
 ---
 
 The generator uses:
