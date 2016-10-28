@@ -5,7 +5,6 @@ This project's goals:
 
 - [x] Password generation
 - [x] Multiple password generation
-- []
 - [ ] A random selection algorithm
 - [ ] Generation of mutltiple strings to use for the final passwords
 - [ ] Writing generated passwords to a .CSV file
