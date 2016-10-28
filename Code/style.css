@@ -1,0 +1,12 @@
+canvas {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    background-color: #d3d3d3;
+}
+
+body {
+padding: 0;
+    margin: 0;
+    background-color: #FFF;
+}
