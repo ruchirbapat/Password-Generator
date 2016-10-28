@@ -6,23 +6,31 @@ var numbersAscending = "0123456789";
 var numbersDescending = "9876543210";
 //Holds how many passwords to create
 var passwordsToCreate = prompt("How many passwords would you like?");
-//Holds how long the password
+//Holds how long the password is
 var passwordLength = prompt("How long should the password be?");
 //Holds all the generated passwords
 var allPasswords = [];
 //Holds the password being currently generated 
-var password = [];
+//var password = [];
+//Holds all randomly generated characters
+var allRandomCharacters = [];
+//Holds some randomly generated characters 
+var randomCharacters = [];
 //Write how many passwords are to be generated at what length
 document.write("Generating " + passwordsToCreate + " passwords of " + passwordLength + " length each... <hr>"); 
 
+var randomNumber = Math.random();
+document.write("</br>" + "Randomly generated number: " + randomNumber + "</br>");
+randomNumber *= 10;
+document.write("" + "Randomly generated number is now: " + randomNumber + "</br></br>");
+
 //Start generating each password
 for(var count = 0; count < passwordsToCreate; ++count) {
-   //Reset the current password
-   password = []; 
+   var password = [];
    //Start generating a password
    for(var i = 0; i < passwordLength; ++i) {
       //If the current iteration is even, place a number. Otherwise place a letter
-      if((i % 2) === 0) {
+      if(((i % 2) === 0) || i === 0) {
          /* STEPS
          * Generate a random number between 0 and 1
          * Multiply it by 10 to make its value larger than 0
@@ -30,7 +38,7 @@ for(var count = 0; count < passwordsToCreate; ++count) {
          * If the value is even choose a number from the ascending numbers string
          * Otherwise choose a number from the descending numbers string
          */
-         password.push((Math.ceil((Math.random() * 10)) % 2 === 0) ? numbersAscending.charAt(generateRandomIndex(0, numbersAscending.length)) : numbersDescending.charAt(generateRandomIndex(0, numbersAscending.length)));
+         password.push((Math.round((randomNumber * 1)) % 2 === 0) ? numbersAscending.charAt(RandRange(0, numbersAscending.length + 1) + 1) : numbersDescending.charAt(RandRange(0, numbersDescending.length + 1) + 1));
       } else {
          /* STEPS
          * Generate a random number between 0 and 1
@@ -39,15 +47,22 @@ for(var count = 0; count < passwordsToCreate; ++count) {
          * If the value is even choose a lowercase alphabet
          * Otherwise choose an uppercase alphabet
          */
-         password.push((Math.ceil((Math.random() * 10)) % 2 === 0) ? alphabet.toLowerCase().charAt(generateRandomIndex(0, alphabet.length)) : alphabet.toUpperCase().charAt(generateRandomIndex(0, alphabet.length)));
+         password.push((Math.round((randomNumber * 10)) % 2 === 0) ? alphabet.toLowerCase().charAt(RandRange(0, alphabet.length + 1)) : alphabet.toUpperCase().charAt(RandRange(0, alphabet.length + 1)));
       }
    }
+   
    //Cut out any whitespace using RegEX
    password = password.filter(function(str) {
        return /\S/.test(str);
    });
    //Add the password to the final array
    allPasswords.push(password.join("").toString());
+}
+
+//Print randomly generated characters
+for(var i = 0; i < allRandomCharacters.length; i++)
+{
+   document.write("Random Character " + (i + 1) + ": " + allRandomCharacters[i] + "</br>");
 }
 
 //Print every password
@@ -58,3 +73,13 @@ for(var i = 0; i < allPasswords.length; i++)
 function generateRandomIndex(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+	//Random number between min and max
+    function RandRange(min, max) { return (Math.random() * (max - min)) + min; }
+	
+	//Generates a random number between 0 and 1
+    function RandValue() { return Math.random(); }
+
+	//Generate a random integer 
+    function RandInt(min, max) { return Math.round(RandRange(min, max)); }
+    function RandBinary() { return RandInt(0, 2); }
